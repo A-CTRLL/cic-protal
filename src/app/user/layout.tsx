@@ -7,24 +7,11 @@ import UserSidebar from "./_components/user-sidebar"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 
-  const endNavLinks=[
-    {
-      title: "Construction Firm Regestration",
-      url: "/user/firm-registration",
-      label:'applications'
-    },
-    {
-      title: "Project Regestration",
-      url: "/user/project-registration",
-      label:'applications'
-    },
-
-
-  ]
+  
   return (
     <SidebarProvider>
       <UserSidebar/>
-      <main>
+      <main className="w-full">
         {/* <SidebarTrigger /> */}
         {children}
       </main>

@@ -69,7 +69,7 @@ import ManageProfileAvatar from "@/components/manage-profile-avatar"
             <SidebarMenu>
                 <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                        <a href="/user/profile">Active Applications</a>
+                        <a href="/user">Active Applications</a>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             </SidebarMenu>
