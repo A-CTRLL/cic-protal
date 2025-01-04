@@ -11,6 +11,7 @@ import {
     SidebarMenuItem,
   } from "@/components/ui/sidebar"
 import AppLogo from "@/components/app-logo"
+import ManageProfileAvatar from "@/components/manage-profile-avatar"
 
 
   
@@ -60,7 +61,7 @@ import AppLogo from "@/components/app-logo"
 
     return (
       <Sidebar>
-        <SidebarHeader className="  px-4">
+        <SidebarHeader className=" bg-slate-200 px-4">
            <AppLogo/>
         </SidebarHeader>
         <SidebarContent>
@@ -147,8 +148,13 @@ import AppLogo from "@/components/app-logo"
           <SidebarGroup />
           
         </SidebarContent>
-        <SidebarFooter>
-
+        <SidebarFooter className="bg-slate-200">
+            <ManageProfileAvatar avator={
+                {
+                    image:"https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80",
+                    email:"b2V2l@example.com"
+                }
+            }/>
         </SidebarFooter>
       </Sidebar>
     )
