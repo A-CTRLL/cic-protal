@@ -21,12 +21,12 @@ import { usePathname } from "next/navigation"
 
     const userNavLinks=[
         {
-          title: "Construction Firm Regestration",
+          title: "Construction Firm Registration",
           url: "/user/firm-registration",
           label:'applications'
         },
         {
-          title: "Project Regestration",
+          title: "Project Registration",
           url: "/user/project-registration",
           label:'applications'
         },
