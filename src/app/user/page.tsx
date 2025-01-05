@@ -4,7 +4,7 @@ import PageTitle from '@/components/page-title';
 import PageWrapper from '@/components/page-wrapper';
 import React from 'react';
 import { useState } from "react";
-import { toast } from "sonner";
+// import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -45,14 +45,14 @@ export default function MyForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       console.log(values);
-      toast(
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      );
+      // toast(
+      //   <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+      //     <code className="text-white">{JSON.stringify(values, null, 2)}</code>
+      //   </pre>
+      // );
     } catch (error) {
       console.error("Form submission error", error);
-      toast.error("Failed to submit the form. Please try again.");
+      // toast.error("Failed to submit the form. Please try again.");
     }
   }
 

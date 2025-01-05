@@ -17,42 +17,63 @@ import { usePathname } from "next/navigation"
 
 
   
-  export default function UserSidebar() {
+  export default function BackOfficeSidebar() {
 
     const userNavLinks=[
+    
         {
-          title: "Construction Firm Regestration",
-          url: "/user/firm-registration",
-          label:'applications'
-        },
-        {
-          title: "Project Regestration",
-          url: "/user/project-registration",
-          label:'applications'
-        },
-        {
-            title: "Project",
-            url: "/user/maintenance/projects",
+            title: "Users",
+            url: "/back-office/maintenance/users",
             label:'maintenance'
         },
         {
-            title: "Transaction History",
-            url: "/user/enquiries/transaction-history",
-            label:'enquiries'
+            title: "Settings",
+            url: "/back-office/maintenance/settings",
+            label:'maintenance'
         },
         {
-            title: "Active projects",
-            url: "/user/reports/active-projects",
+            title: "Buidling Works Categories",
+            url: "/back-office/maintenance/building-works-categories",
+            label:'maintenance'
+        },
+        {
+            title: "Mechanical Works Categories",
+            url: "/back-office/maintenance/mechanical-works-categories",
+            label:'maintenance'
+        },
+        {
+            title: "Electrical Works Categories",
+            url: "/back-office/maintenance/electrical-works-categories",
+            label:'maintenance'
+        },
+        {
+            title: "Civil Works Categories",
+            url: "/back-office/maintenance/civil-works-categories",
+            label:'maintenance'
+        },
+        {
+            title: "Project Levy Payment Schedules",
+            url: "/back-office/maintenance/project-levy-payment-schedules",
+            label:'maintenance'
+        },
+        {
+            title: "Previous Applications",
+            url: "/back-office/reports/previous-applications",
             label:'reports'
         },
         {
-            title: "Completed projects",
-            url: "/user/reports/completed-projects",
+            title: "Levy Assessment",
+            url: "/back-office/reports/levy-assessment",
             label:'reports'
         },
         {
-            title: "Transaction History",
-            url: "/user/reports/completed-projects",
+            title: "Projects Report",
+            url: "/back-office/reports/projects-report",
+            label:'reports'
+        },
+        {
+            title: "Projects Registered Pivot",
+            url: "/back-office/reports/projects-registered-pivot",
             label:'reports'
         },
     
@@ -78,48 +99,12 @@ import { usePathname } from "next/navigation"
                 </SidebarMenuItem>
             </SidebarMenu>
             <SidebarGroupLabel className="flex items-center gap-1 border-b">
-              Applications
-            </SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {
-                    userNavLinks.filter(link => link.label === 'applications').map((link) => (
-                      <SidebarMenuItem key={link.title} className={`${url === link.url ? 'font-bold' : ''}`}>
-                        <SidebarMenuButton asChild>
-                          <a href={link.url}>
-                            {link.title}
-                          </a>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    ))
-                }
-              </SidebarMenu>
-            </SidebarGroupContent>
-            <SidebarGroupLabel className="flex items-center gap-1 border-b ">
               Maintenance
             </SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {
                     userNavLinks.filter(link => link.label === 'maintenance').map((link) => (
-                      <SidebarMenuItem key={link.title}>
-                        <SidebarMenuButton asChild>
-                          <a href={link.url}>
-                            {link.title}
-                          </a>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    ))
-                }
-              </SidebarMenu>
-            </SidebarGroupContent>
-            <SidebarGroupLabel className="flex items-center gap-1 border-b ">
-              Enquiries
-            </SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {
-                    userNavLinks.filter(link => link.label === 'enquiries').map((link) => (
                       <SidebarMenuItem key={link.title}>
                         <SidebarMenuButton asChild>
                           <a href={link.url}>
@@ -149,6 +134,8 @@ import { usePathname } from "next/navigation"
                 }
               </SidebarMenu>
             </SidebarGroupContent>
+            
+            
           <SidebarGroup />
           
         </SidebarContent>
