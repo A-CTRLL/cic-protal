@@ -91,13 +91,13 @@ import { usePathname } from "next/navigation"
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup />
-            <SidebarMenu>
-                <SidebarMenuItem>
+            
+                <SidebarMenuItem className={`${url === '/back-office' ? 'font-bold' : ''}`}>
                     <SidebarMenuButton asChild>
                         <a href="/user">Active Applications</a>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
-            </SidebarMenu>
+            
             <SidebarGroupLabel className="flex items-center gap-1 border-b">
               Maintenance
             </SidebarGroupLabel>
@@ -105,7 +105,7 @@ import { usePathname } from "next/navigation"
               <SidebarMenu>
                 {
                     userNavLinks.filter(link => link.label === 'maintenance').map((link) => (
-                      <SidebarMenuItem key={link.title}>
+                      <SidebarMenuItem key={link.title} className={`${url === link.url ? 'font-bold' : ''}`}>
                         <SidebarMenuButton asChild>
                           <a href={link.url}>
                             {link.title}
@@ -123,7 +123,7 @@ import { usePathname } from "next/navigation"
               <SidebarMenu>
                 {
                     userNavLinks.filter(link => link.label === 'reports').map((link) => (
-                      <SidebarMenuItem key={link.title}>
+                      <SidebarMenuItem key={link.title} className={`${url === link.url ? 'font-bold' : ''}`}>
                         <SidebarMenuButton asChild>
                           <a href={link.url}>
                             {link.title}

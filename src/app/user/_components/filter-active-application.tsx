@@ -71,9 +71,9 @@ export default function FilterActiveApplication() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 gap-2">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex">
         
-        <div className="flex ">
+        <div className=" ">
           
          
           <div className='w-full'>  
@@ -159,9 +159,9 @@ export default function FilterActiveApplication() {
             )}
             />
           </div>
-          
+          <Button type="submit" className='w-20 place-self-end'>Submit</Button>
         </div>
-        <Button type="submit" className='w-20 place-self-end'>Submit</Button>
+        
       </form>
     </Form>
   )

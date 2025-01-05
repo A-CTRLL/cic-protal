@@ -103,7 +103,7 @@ export default function LoginForm() {
         />
         
         <div className="flex justify-between">
-            <Button type="submit">Submit</Button>
+            <Button type="submit">Login</Button>
             <Link href="/register">
                 <Button >Register</Button>
             </Link>

@@ -52,7 +52,7 @@ import { usePathname } from "next/navigation"
         },
         {
             title: "Transaction History",
-            url: "/user/reports/completed-projects",
+            url: "/user/reports/transaction-history",
             label:'reports'
         },
     
@@ -70,13 +70,13 @@ import { usePathname } from "next/navigation"
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup />
-            <SidebarMenu>
-                <SidebarMenuItem>
+            
+                <SidebarMenuItem >
                     <SidebarMenuButton asChild>
-                        <a href="/user">Active Applications</a>
+                        <a href="/user" className={`${url === '/user' ? 'font-bold' : ''}`}>Active Applications</a>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
-            </SidebarMenu>
+            
             <SidebarGroupLabel className="flex items-center gap-1 border-b">
               Applications
             </SidebarGroupLabel>
@@ -102,7 +102,7 @@ import { usePathname } from "next/navigation"
               <SidebarMenu>
                 {
                     userNavLinks.filter(link => link.label === 'maintenance').map((link) => (
-                      <SidebarMenuItem key={link.title}>
+                      <SidebarMenuItem key={link.title} className={`${url === link.url ? 'font-bold' : ''}`}>
                         <SidebarMenuButton asChild>
                           <a href={link.url}>
                             {link.title}
@@ -120,7 +120,7 @@ import { usePathname } from "next/navigation"
               <SidebarMenu>
                 {
                     userNavLinks.filter(link => link.label === 'enquiries').map((link) => (
-                      <SidebarMenuItem key={link.title}>
+                      <SidebarMenuItem key={link.title} className={`${url === link.url ? 'font-bold' : ''}`}>
                         <SidebarMenuButton asChild>
                           <a href={link.url}>
                             {link.title}
@@ -138,7 +138,7 @@ import { usePathname } from "next/navigation"
               <SidebarMenu>
                 {
                     userNavLinks.filter(link => link.label === 'reports').map((link) => (
-                      <SidebarMenuItem key={link.title}>
+                      <SidebarMenuItem key={link.title} className={`${url === link.url ? 'font-bold' : ''}`}>
                         <SidebarMenuButton asChild>
                           <a href={link.url}>
                             {link.title}
