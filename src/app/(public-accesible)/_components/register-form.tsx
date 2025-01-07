@@ -33,12 +33,14 @@ import {
 // import {
 //   Input type='password'
 // } from "@/components/ui/password-input"
+import { useAtom,atom } from 'jotai'
+import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
   username: z.string(),
   password: z.string(),
   confirmPassword: z.string(),
-  companyName: z.string()
+  
 });
 
 export default function RegisterForm() {
@@ -48,9 +50,12 @@ export default function RegisterForm() {
 
   })
 
+  const router=useRouter()
+
   function onSubmit(values: z.infer < typeof formSchema > ) {
     try {
       console.log(values);
+      router.push("/user/firm-registration");
     //   toast(
     //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
     //       <code className="text-white">{JSON.stringify(values, null, 2)}</code>
@@ -117,25 +122,7 @@ export default function RegisterForm() {
         />
         
         
-        <FormField
-          control={form.control}
-          name="companyName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Company Name</FormLabel>
-              <FormControl>
-                <Input 
-                
-                
-                type="text"
-                {...field} />
-              </FormControl>
-              
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
+        <Button className="mt-4" type="submit">Submit</Button>
       </form>
     </Form>
   )

@@ -85,14 +85,14 @@ import { usePathname } from "next/navigation"
 
 
     return (
-      <Sidebar>
+      <Sidebar className="list-none">
         <SidebarHeader className="  px-4">
            <AppLogo/>
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup />
             
-                <SidebarMenuItem className={`${url === '/back-office' ? 'font-bold' : ''}`}>
+                <SidebarMenuItem className={`${url === '/back-office' && 'font-bold' }`}>
                     <SidebarMenuButton asChild>
                         <a href="/user">Active Applications</a>
                     </SidebarMenuButton>

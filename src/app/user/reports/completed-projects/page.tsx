@@ -5,7 +5,7 @@ import React from 'react'
 function page() {
   return (
     <PageWrapper>
-        <PageTitle title='Transaction History'/>
+        <PageTitle title='Completed Projects'/>
     </PageWrapper>
   )
 }

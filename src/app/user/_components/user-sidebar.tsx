@@ -26,7 +26,7 @@ import { usePathname } from "next/navigation"
           label:'applications'
         },
         {
-          title: "Project Registration",
+          title: "Register New Project",
           url: "/user/project-registration",
           label:'applications'
         },
@@ -64,16 +64,16 @@ import { usePathname } from "next/navigation"
 
 
     return (
-      <Sidebar>
+      <Sidebar className="list-none">
         <SidebarHeader className="  px-4">
            <AppLogo/>
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup />
             
-                <SidebarMenuItem >
+                <SidebarMenuItem  >
                     <SidebarMenuButton asChild>
-                        <a href="/user" className={`${url === '/user' ? 'font-bold' : ''}`}>Active Applications</a>
+                        <a href="/user" className={`${url == '/user' && 'font-bold' }`}>Active Applications</a>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             

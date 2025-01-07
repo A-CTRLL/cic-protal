@@ -1,0 +1,50 @@
+[
+  {
+    "date": "2025-01-01",
+    "project": "Building A",
+    "projectCode": "PRJ001",
+    "reference": "TXN001",
+    "levyAmount": "$250.00",
+    "invoice": "INV001"
+  },
+  {
+    "date": "2025-01-02",
+    "project": "Bridge Construction",
+    "projectCode": "PRJ002",
+    "reference": "TXN002",
+    "levyAmount": "$150.00",
+    "invoice": "INV002"
+  },
+  {
+    "date": "2025-01-03",
+    "project": "Road Expansion",
+    "projectCode": "PRJ003",
+    "reference": "TXN003",
+    "levyAmount": "$350.00",
+    "invoice": "INV003"
+  },
+  {
+    "date": "2025-01-04",
+    "project": "Building A",
+    "projectCode": "PRJ001",
+    "reference": "TXN004",
+    "levyAmount": "$250.00",
+    "invoice": "INV004"
+  },
+  {
+    "date": "2025-01-05",
+    "project": "Bridge Construction",
+    "projectCode": "PRJ002",
+    "reference": "TXN005",
+    "levyAmount": "$150.00",
+    "invoice": "INV005"
+  },
+  {
+    "date": "2025-01-06",
+    "project": "Road Expansion",
+    "projectCode": "PRJ003",
+    "reference": "TXN006",
+    "levyAmount": "$350.00",
+    "invoice": "INV006"
+  }
+]
