@@ -59,6 +59,7 @@ import {
   Paperclip
 } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Textarea } from "@/components/ui/textarea"
 
 
 
@@ -78,7 +79,11 @@ const formSchema = z.object({
   finacialStatementsYearOneTurnOver: z.string(),
   finacialStatementsYearOne: z.string(),
   finacialStatementsYearTwoTurnOver: z.string(),
-  finacialStatementsYearTwo: z.string()
+  finacialStatementsYearTwo: z.string(),
+  TypeOfInvolvement: z.string(),
+  LetterOfAward: z.string(),
+  CertificateOfCompletion: z.string(),
+  FinalPaymentCertificates: z.string()
 });
 
 export default function MyForm() {
@@ -122,6 +127,7 @@ export default function MyForm() {
         <TabsTrigger value="sectionB">Section B</TabsTrigger>
         <TabsTrigger value="sectionC">Section C</TabsTrigger>
         <TabsTrigger value="sectionD">Section D</TabsTrigger>
+        <TabsTrigger value="sectionE">Section E</TabsTrigger>
       </TabsList>
       <TabsContent value="sectionA">
         <FormField
@@ -137,9 +143,9 @@ export default function MyForm() {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="m@example.com">m@example.com</SelectItem>
-                  <SelectItem value="m@google.com">m@google.com</SelectItem>
-                  <SelectItem value="m@support.com">m@support.com</SelectItem>
+                  <SelectItem value="NAFR">New Application for Registration</SelectItem>
+                  <SelectItem value="AWD">Additional Work Discipline</SelectItem>
+                  <SelectItem value="RR">Registration Renewal</SelectItem>
                 </SelectContent>
               </Select>
                 
@@ -152,7 +158,7 @@ export default function MyForm() {
       control={form.control}
       name="dateOfApplication"
       render={({ field }) => (
-        <FormItem className="flex flex-col">
+        <FormItem className="flex flex-col p-3">
           <FormLabel>Date of Application</FormLabel>
           <Popover>
             <PopoverTrigger asChild>
@@ -319,7 +325,7 @@ export default function MyForm() {
               <FormLabel>Trading Style</FormLabel>
               <FormControl>
                 <Input 
-                placeholder="shadcn"
+                placeholder=""
                 
                 type=""
                 {...field} />
@@ -343,9 +349,13 @@ export default function MyForm() {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="m@example.com">m@example.com</SelectItem>
-                  <SelectItem value="m@google.com">m@google.com</SelectItem>
-                  <SelectItem value="m@support.com">m@support.com</SelectItem>
+                  <SelectItem value="SP">Sole Proprietorship</SelectItem>
+                  <SelectItem value="P">Partnership</SelectItem>
+                  <SelectItem value="FC">Foreign Company</SelectItem>
+                  <SelectItem value="SC">Subsidiary Company</SelectItem>
+                  <SelectItem value="PC">Public Company</SelectItem>
+                  <SelectItem value="PC">Private Company</SelectItem>
+                  <SelectItem value="OT">Other</SelectItem>
                 </SelectContent>
               </Select>
                 
@@ -477,7 +487,7 @@ export default function MyForm() {
               <FormLabel>Annual Turnover - Financial Year 2 end Total Turnover</FormLabel>
               <FormControl>
                 <Input 
-                placeholder="shadcn"
+                placeholder=""
                 
                 type=""
                 {...field} />
@@ -503,9 +513,170 @@ export default function MyForm() {
               )}
             />
             </TabsContent>
+
+            <TabsContent value='sectionE'>
+            <FormField
+          control={form.control}
+          name="businessName"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Project Name</FormLabel>
+              <FormControl>
+                <Input 
+                placeholder=""
+                
+                type=""
+                {...field} />
+              </FormControl>
+              
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        <FormField
+          control={form.control}
+          name="tradingStyle"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Location</FormLabel>
+              <FormControl>
+                <Input 
+                placeholder=""
+                
+                type=""
+                {...field} />
+              </FormControl>
+              
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        
+      <FormField
+      control={form.control}
+      name="companyRegistrationDate"
+      render={({ field }) => (
+        <FormItem className="flex flex-col">
+          <FormLabel>Completion Date</FormLabel>
+          <Popover>
+            <PopoverTrigger asChild>
+              <FormControl>
+                <Button
+                  variant={"outline"}
+                  className={cn(
+                    "w-[240px] pl-3 text-left font-normal",
+                    !field.value && "text-muted-foreground"
+                  )}
+                >
+                  {field.value ? (
+                    format(field.value, "PPP")
+                  ) : (
+                    <span>Pick a date</span>
+                  )}
+                  <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                </Button>
+              </FormControl>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto p-0" align="start">
+              <Calendar
+                mode="single"
+                selected={field.value}
+                onSelect={field.onChange}
+                initialFocus
+              />
+            </PopoverContent>
+          </Popover>
+       
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+        
+        <FormField
+          control={form.control}
+          name="physicalInAddressinEswati"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Client Name</FormLabel>
+              <FormControl>
+                <Input 
+                placeholder=""
+                
+                type="text"
+                {...field} />
+              </FormControl>
+              
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+         <FormField
+          control={form.control}
+          name="TypeOfInvolvement"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Type of Involvement</FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder=""
+                  className="resize-none"
+                  {...field}
+                />
+              </FormControl>
+              
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        <FormField
+              control={form.control}
+              name="LetterOfAward"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Attach copies of Letter of Award</FormLabel>
+                  <FormControl>
+                    <Input type="file" {...field} />
+                  </FormControl>
+                  <FormDescription>Select a file to upload.</FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="CertificateOfCompletion"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Attach copies of Certificate of Completion</FormLabel>
+                  <FormControl>
+                    <Input type="file" {...field} />
+                  </FormControl>
+                  <FormDescription>Select a file to upload.</FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="FinalPaymentCertificates"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Attach copies of Final Payment Certificate</FormLabel>
+                  <FormControl>
+                    <Input type="file" {...field} />
+                  </FormControl>
+                  <FormDescription>Select a file to upload.</FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            </TabsContent>
         
         </Tabs>
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Save</Button>
       </form>
     </Form>
   )
