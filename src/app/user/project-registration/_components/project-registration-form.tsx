@@ -40,12 +40,13 @@ import {
   SelectTrigger,
   SelectValue
 } from "@/components/ui/select"
+import SuccessAlert from "@/components/success-alert"
 
 const formSchema = z.object({
   projectName: z.string(),
   projectDescription: z.string(),
   status: z.string(),
-  levyAmount: z.number()
+  levyAmount: z.string()
 });
 
 export default function ProjectRegistrationForm() {
@@ -55,13 +56,45 @@ export default function ProjectRegistrationForm() {
 
   })
 
+  //get value for submission date 
+  const presentDate=new Date();
+  const timeStamp = presentDate.toISOString().split('T')[0];
+
+  //generate project code
+  function projectCodeGenerator(){
+    const projectCode = `PRJ${Math.floor(Math.random() * 1000)}`;
+    return projectCode;
+  }
+
+  //get current user id
+  // const userId: any ;
+
+  const [projectData, setProjectData] = useState({
+    id: '',
+    submissionDate: timeStamp,
+    submittedBy: 'userId',
+    applicationApprovedBy:'' ,
+    projectCode: projectCodeGenerator(),
+   
+
+  });
+
   function onSubmit(values: z.infer < typeof formSchema > ) {
     try {
-      console.log(values);
+      console.log({...values,...projectData});
+      if(!localStorage.getItem('projects')){
+        localStorage.setItem('projects', JSON.stringify([{...values,...projectData}]));
+      }else{
+        const projects = JSON.parse(localStorage.getItem('projects')!);
+        localStorage.setItem('projects', JSON.stringify([...projects,{...values,...projectData}]));
+        console.log('Projects exists',projects);
+     
+      }
+
+      // localStorage.setItem('projects', JSON.stringify({...values,...projectData}));
+
       toast(
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
+        <SuccessAlert title="Success" description="Project Submitted"/>
       );
     } catch (error) {
       console.error("Form submission error", error);

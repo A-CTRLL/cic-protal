@@ -14,6 +14,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Button } from '@/components/ui/button'
+import ContentCard  from '@/components/content-card'
 
 // Invoice data
 
@@ -43,30 +44,32 @@ function Page() {
           className="search-input w-full p-2 border border-gray-300 rounded-lg" 
         />
       </div>
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[150px]">Date</TableHead>
-            <TableHead>Project Code</TableHead>
-            <TableHead>Refrence</TableHead>
-            <TableHead>Levy Amount</TableHead>
-            <TableHead>Invoice</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {transactions.map((transcation) => (
-            <TableRow key={transcation.projectCode}>
-              <TableCell className="font-medium">{transcation.date}</TableCell>
-              <TableCell>{transcation.projectCode}</TableCell>
-              <TableCell>{transcation.reference}</TableCell>
-              <TableCell>{transcation.levyAmount}</TableCell>
-              <TableCell>
-                <button className="text-blue-500">{transcation.invoice}</button>
-              </TableCell>
+      <ContentCard>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[150px]">Date</TableHead>
+              <TableHead>Project Code</TableHead>
+              <TableHead>Refrence</TableHead>
+              <TableHead>Levy Amount</TableHead>
+              <TableHead>Invoice</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+          <TableBody>
+            {transactions.map((transcation) => (
+              <TableRow key={transcation.projectCode}>
+                <TableCell className="font-medium">{transcation.date}</TableCell>
+                <TableCell>{transcation.projectCode}</TableCell>
+                <TableCell>{transcation.reference}</TableCell>
+                <TableCell>{transcation.levyAmount}</TableCell>
+                <TableCell>
+                  <button className="text-blue-500">{transcation.invoice}</button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </ContentCard>
     </PageWrapper>
   )
 }

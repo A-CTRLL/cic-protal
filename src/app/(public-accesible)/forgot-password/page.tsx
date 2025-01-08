@@ -1,65 +1,20 @@
-"use client";
+import AppLogo from '@/components/app-logo'
+import { Card, CardContent, CardTitle } from '@/components/ui/card'
+import React from 'react'
+import ForgotPassword from './_components/forgot-password'
+import AuthCard from '../_components/auth-card'
 
-import React, { useState } from 'react';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-function ForgotPassword() {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-
-    try {
-      // Replace with your API endpoint
-      const response = await fetch('/api/forgot-password', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
-      if (response.ok) {
-        setMessage('Password reset link sent to your email.');
-      } else {
-        setMessage(data.error || 'An error occurred. Please try again.');
-      }
-    } catch (error) {
-      setMessage('An error occurred. Please try again later.');
-    }
-  };
-
+function page() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle>Forgot Password</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <label htmlFor="email" className="block text-sm font-medium">
-              Email Address:
-            </label>
-            <Input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <Button type="submit" className="w-full">
-              Submit
-            </Button>
-          </form>
-          {message && <p className="mt-4 text-center text-sm text-red-500">{message}</p>}
-        </CardContent>
-      </Card>
+    <div className='h-screen flex items-center justify-center bg-gray-100'>
+        <AuthCard>
+          <h1>Forgot Password</h1>
+          <ForgotPassword/>
+        </AuthCard>
     </div>
-  );
+  )
 }
 
-export default ForgotPassword;
+export default page

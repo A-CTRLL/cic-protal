@@ -38,9 +38,15 @@ import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
   username: z.string(),
-  password: z.string(),
-  confirmPassword: z.string(),
-  
+  password: z.string()
+    .min(8, "Password must be at least 8 characters")
+    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .regex(/[a-z]/, "Password must contain at least one lowercase letter")
+    .regex(/[0-9]/, "Password must contain at least one number"),
+  confirmPassword: z.string()
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords don't match",
+  path: ["confirmPassword"], // path of error
 });
 
 export default function RegisterForm() {
@@ -55,6 +61,8 @@ export default function RegisterForm() {
   function onSubmit(values: z.infer < typeof formSchema > ) {
     try {
       console.log(values);
+      const users=localStorage.getItem('users')
+      console.log('USers:',users)
       router.push("/user/firm-registration");
     //   toast(
     //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">

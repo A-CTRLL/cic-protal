@@ -73,7 +73,7 @@ import { usePathname } from "next/navigation"
             
                 <SidebarMenuItem  >
                     <SidebarMenuButton asChild>
-                        <a href="/user" className={`${url == '/user' && 'font-bold' }`}>Active Applications</a>
+                        <a href="/user" className={`${url == '/user' && 'font-bold' }`}>Dashboard</a>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             

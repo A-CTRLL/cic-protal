@@ -1,6 +1,13 @@
+'use client'
 import React from 'react'
+import { useEffect } from 'react'
 import PageTitle from '@/components/page-title'
 import PageWrapper from '@/components/page-wrapper'
+import ContentCard from '@/components/content-card'
+import {Label} from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
+import { MdEditDocument } from "react-icons/md";
+import { MdDownloadForOffline } from "react-icons/md";
 
 // Import UI components for the table
 import {
@@ -14,35 +21,32 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
-// Invoice data
-const projects = [
-  {
-    projectCode: "PRJ001",
-    projectName: "Building A",
-    levyAmount: "$250.00",
-    status: "Completed",
-    certificate: "download",
-    action: "edit",
-  },
-  {
-    projectCode: "PRJ002",
-    projectName: "Bridge Construction",
-    levyAmount: "$150.00",
-    status: "Ongoing",
-    certificate: "download",
-    action: "edit",
-  },
-  {
-    projectCode: "PRJ003",
-    projectName: "Road Expansion",
-    levyAmount: "$350.00",
-    status: "Pending",
-    certificate: "download",
-    action: "edit",
-  },
-]
+
+//import UI components for the dialog
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Button } from 'react-day-picker'
+
+
+
+
 
 function Page() {
+
+  const [projects, setProjects] = React.useState([])
+
+  useEffect(() => {
+    const projectsData = JSON.parse(localStorage.getItem('projects') || '[]');
+    setProjects(projectsData)
+  }, [])
+
+
   return (
     <PageWrapper>
       <PageTitle title='Projects' />
@@ -53,7 +57,9 @@ function Page() {
           className="search-input w-full p-2 border border-gray-300 rounded-lg" 
         />
       </div>
-      <Table>
+      
+      <ContentCard>
+      <Table className=''>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[150px]">Project Code</TableHead>
@@ -65,22 +71,52 @@ function Page() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {projects.map((project) => (
-            <TableRow key={project.projectCode}>
-              <TableCell className="font-medium">{project.projectCode}</TableCell>
-              <TableCell>{project.projectName}</TableCell>
-              <TableCell>{project.levyAmount}</TableCell>
-              <TableCell>{project.status}</TableCell>
-              <TableCell>
-                <a href="#" className="text-blue-500">{project.certificate}</a>
+          {projects.map((project: any) => (
+            <TableRow key={project?.projectCode}>
+              <TableCell  className="font-medium">{project?.projectCode}</TableCell>
+              <TableCell>{project?.projectName}</TableCell>
+              <TableCell>{project?.levyAmount}</TableCell>
+              <TableCell>{project?.status}</TableCell>
+              <TableCell className='flex items-center'>
+                <a href="#" className="text-blue-500 flex gap-1 items-center"><MdDownloadForOffline/> Download</a>
               </TableCell>
               <TableCell>
-                <button className="text-blue-500">{project.action}</button>
+                <Dialog>
+                 <DialogTrigger className='flex gap-1 items-center'>
+                  <MdEditDocument/> Edit
+                 </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Edit Project</DialogTitle>
+                      <DialogDescription>
+                        <form>
+                          <div className="grid gap-4 py-4">
+                            <div className="flex flex-col gap-2">
+                              <Label className="text-start">Project Code</Label>
+                              <Input type="text" value={project?.projectCode} disabled className="col-span-3" />
+                            </div>
+                            <div className="flex flex-col gap-2">
+                              <Label className="text-start">Project Name</Label>
+                              <Input type="text" value={project?.projectName} className="col-span-3" />
+                            </div>
+                            <div className="flex flex-col gap-2">
+                              <Label className="text-start">Levy Amount</Label>
+                              <Input type="text" value={project?.levyAmount} className="col-span-3" />
+                            </div>
+                            
+                          </div>
+                          
+                        </form>
+                      </DialogDescription>
+                    </DialogHeader>
+                  </DialogContent>
+                </Dialog>
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+      </ContentCard>
     </PageWrapper>
   )
 }
