@@ -16,6 +16,9 @@ import {
   cn
 } from "@/lib/utils"
 import {
+  toast
+} from "sonner"
+import {
   Button
 } from "@/components/ui/button"
 import {
@@ -37,7 +40,7 @@ import { useAtom,atom } from 'jotai'
 import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
-  username: z.string(),
+  email: z.string(),
   password: z.string()
     .min(8, "Password must be at least 8 characters")
     .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
@@ -58,20 +61,53 @@ export default function RegisterForm() {
 
   const router=useRouter()
 
-  function onSubmit(values: z.infer < typeof formSchema > ) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      console.log(values);
-      const users=localStorage.getItem('users')
-      console.log('USers:',users)
-      router.push("/user/firm-registration");
-    //   toast(
-    //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-    //       <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-    //     </pre>
-    //   );
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      
+      // Check if email already exists
+      const existingUser = users.find((user: { email: string }) => 
+        user.email.toLowerCase() === values.email.toLowerCase()
+      );
+  
+      if (existingUser) {
+        toast.error("Email already registered");
+        return;
+      }
+  
+      // Create new user object with additional fields
+      const newUser = {
+        id: Date.now(),
+        email: values.email.toLowerCase(),
+        
+        password: values.password, 
+        createdAt: new Date().toISOString()
+      };
+  
+      // Add new user to the array
+      const updatedUsers = [...users, newUser];
+      localStorage.setItem('users', JSON.stringify(updatedUsers));
+  
+      // Show success message
+      toast.success("Registration successful!");
+  
+      // Optional: Reset form
+      form.reset();
+  
+      // Redirect after successful registration
+      await router.push("/user/firm-registration");
+  
     } catch (error) {
-      console.error("Form submission error", error);
-    //   toast.error("Failed to submit the form. Please try again.");
+      console.error("Form submission error:", error);
+      
+      // More specific error messages based on error type
+      if (error instanceof SyntaxError) {
+        toast.error("Invalid data format. Please try again.");
+      } else if (error instanceof Error) {
+        toast.error(error.message);
+      } else {
+        toast.error("Failed to submit the form. Please try again.");
+      }
     }
   }
 
@@ -81,7 +117,7 @@ export default function RegisterForm() {
         
         <FormField
           control={form.control}
-          name="username"
+          name="email"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Username</FormLabel>

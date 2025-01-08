@@ -2,7 +2,9 @@
 import {
   useState
 } from "react"
-
+import {
+  toast
+} from "sonner"
 import {
   useForm
 } from "react-hook-form"
@@ -36,7 +38,7 @@ import {useRouter} from "next/navigation"
 
 
 const formSchema = z.object({
-  username: z.string(),
+  email: z.string(),
   password: z.string()
 });
 
@@ -49,17 +51,65 @@ export default function LoginForm() {
 
   const router=useRouter();
 
-  function onSubmit(values: z.infer < typeof formSchema > ) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      router.push("/user");
-    //   toast(
-    //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-    //       <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-    //     </pre>
-    //   );
+      // Validate form data
+      const validatedData = formSchema.parse(values);
+      
+      // Get users from localStorage
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      
+      // Find user with matching email
+      const user = users.find((user: { email: string }) => 
+        user.email.toLowerCase() === validatedData.email.toLowerCase()
+      );
+  
+      // Check if user exists and password matches
+      if (!user) {
+        toast.error("No account found with this email");
+        return;
+      }
+  
+      if (user.password !== validatedData.password) {
+        toast.error("Invalid password");
+        return;
+      }
+  
+      // Store user session (don't include password in session)
+      const session = {
+        id: user.id,
+        email: user.email,
+        username: user.username,
+        lastLogin: new Date().toISOString()
+      };
+      
+      localStorage.setItem('session', JSON.stringify(session));
+  
+      // Show success message
+      toast.success("Login successful!");
+  
+      // Reset form
+      form.reset();
+  
+      // Update last login time in users collection
+      const updatedUsers = users.map((u: { id: number }) => 
+        u.id === user.id 
+          ? { ...u, lastLogin: new Date().toISOString() }
+          : u
+      );
+      localStorage.setItem('users', JSON.stringify(updatedUsers));
+  
+      // Redirect to dashboard
+      await router.push("/user");
+  
     } catch (error) {
-      console.error("Form submission error", error);
-    //   toast.error("Failed to submit the form. Please try again.");
+      console.error("Login error:", error);
+      
+      if (error instanceof z.ZodError) {
+        toast.error("Please check your input and try again");
+      } else {
+        toast.error("Login failed. Please try again.");
+      }
     }
   }
 
@@ -69,7 +119,7 @@ export default function LoginForm() {
         
         <FormField
           control={form.control}
-          name="username"
+          name="email"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Username</FormLabel>
@@ -77,7 +127,7 @@ export default function LoginForm() {
                 <Input 
                
                 
-                type="text"
+                type="email"
                 {...field} />
               </FormControl>
               
