@@ -29,12 +29,12 @@ import {
 import {
   Input
 } from "@/components/ui/input"
-// import PhoneInput 
-// from "@/components/ui/phone-input"
+import {PhoneInput} from "@/components/ui/phone-input"
 import {
   Checkbox
 } from "@/components/ui/checkbox"
 import {
+
   Textarea
 } from "@/components/ui/textarea"
 import LocationSelector from "@/components/ui/location-input"
@@ -141,7 +141,7 @@ export default function MyForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-3xl mx-auto py-10">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         
         <div className="grid grid-cols-12 gap-4">
           
@@ -243,7 +243,7 @@ export default function MyForm() {
           
           <div className="col-span-6">
             
-          {/* <FormField
+          <FormField
             control={form.control}
             name="PhoneNo"
             render={({ field }) => (
@@ -260,12 +260,12 @@ export default function MyForm() {
                 <FormMessage />
               </FormItem>
             )}
-          /> */}
+          />
             
           </div>
           
           <div className="col-span-6">
-{/*             
+            
           <FormField
             control={form.control}
             name="telNo"
@@ -283,7 +283,7 @@ export default function MyForm() {
                 <FormMessage />
               </FormItem>
             )}
-          /> */}
+          />
             
           </div>
           
@@ -814,7 +814,7 @@ export default function MyForm() {
           
           <div className="col-span-6">
             
-          {/* <FormField
+          <FormField
             control={form.control}
             name="ContactDetails"
             render={({ field }) => (
@@ -831,7 +831,7 @@ export default function MyForm() {
                 <FormMessage />
               </FormItem>
             )}
-          /> */}
+          />
             
           </div>
           
@@ -935,7 +935,7 @@ export default function MyForm() {
           
           <div className="col-span-6">
             
-          {/* <FormField
+          <FormField
             control={form.control}
             name="ContactDetails"
             render={({ field }) => (
@@ -952,7 +952,7 @@ export default function MyForm() {
                 <FormMessage />
               </FormItem>
             )}
-          /> */}
+          />
             
           </div>
           
@@ -1056,7 +1056,7 @@ export default function MyForm() {
           
           <div className="col-span-6">
             
-          {/* <FormField
+          <FormField
             control={form.control}
             name="name_3212952283"
             render={({ field }) => (
@@ -1073,7 +1073,7 @@ export default function MyForm() {
                 <FormMessage />
               </FormItem>
             )}
-          /> */}
+          />
             
           </div>
           
@@ -1184,7 +1184,7 @@ export default function MyForm() {
           
           <div className="col-span-6">
             
-          {/* <FormField
+          <FormField
             control={form.control}
             name="name_2629970594"
             render={({ field }) => (
@@ -1201,7 +1201,7 @@ export default function MyForm() {
                 <FormMessage />
               </FormItem>
             )}
-          /> */}
+          />
             
           </div>
           
