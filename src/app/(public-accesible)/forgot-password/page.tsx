@@ -10,7 +10,7 @@ function page() {
   return (
     <div className='h-screen flex items-center justify-center bg-gray-100'>
         <AuthCard>
-          <h1>Forgot Password</h1>
+          <h1 className='font-bold text-md text-center my-4'>Register Password</h1>
           <ForgotPassword/>
         </AuthCard>
     </div>

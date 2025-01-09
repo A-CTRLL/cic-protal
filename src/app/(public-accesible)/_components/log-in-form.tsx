@@ -115,7 +115,7 @@ export default function LoginForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-3xl mx-auto py-10">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 gap-2">
         
         <FormField
           control={form.control}
@@ -155,11 +155,13 @@ export default function LoginForm() {
           )}
         />
         
-        <div className="flex justify-between">
+        <div className="grid grid-cols-1 gap-2 mt-2">
             <Button type="submit">Login</Button>
-            <Link href="/register">
-                <Button >Register</Button>
-            </Link>
+            <Button type="button">
+              <Link href="/register">
+                  Register
+              </Link>
+            </Button>
         </div>
       </form>
     </Form>

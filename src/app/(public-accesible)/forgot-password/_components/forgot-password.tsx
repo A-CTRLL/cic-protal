@@ -30,6 +30,8 @@ import {
 import {
   Input
 } from "@/components/ui/input"
+import Link from "next/link"
+
 
 const formSchema = z.object({
   email: z.string()
@@ -73,12 +75,18 @@ export default function ForgotPassword() {
                 type="email"
                 {...field} />
               </FormControl>
-              <FormDescription>Please input email to reset the password. If you have an account on our portal you will get an email.</FormDescription>
               <FormMessage />
+              <FormDescription className="text-xs">Please input email to reset the password. If you have an account on our portal you will get an email.</FormDescription>
+              
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <div className="grid grid-cols-1 gap-2 mt-2">
+           <Button type="submit" className="">Submit</Button>
+           <Button >
+              <Link href="/">Go to Login</Link>
+           </Button>
+        </div>
       </form>
     </Form>
   )
