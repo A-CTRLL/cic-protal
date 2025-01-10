@@ -2,10 +2,16 @@
     {
       "track_record_id": 1,
       "company_id": 1,
-      "project_title": "Metro Plaza",
+      "project_name": "Metro Plaza",
+      "project_location": "Downtown Central",
       "completion_date": "2024-12-01",
-      "contract_value": 5000000,
+      "contract_sum": 5000000,
       "client_name": "CityCorp",
-      "client_contact": "info@citycorp.com"
+      "client_contact": "info@citycorp.com",
+      "role_in_project": "Main Contractor",
+      "joint_venture_agreement": null,
+      "letter_of_award": "award_metro_plaza.pdf",
+      "certificate_of_completion": "completion_cert_metro.pdf",
+      "final_payment_certificate": "payment_cert_metro.pdf"
     }
   ]

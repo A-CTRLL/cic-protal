@@ -14,6 +14,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import {Button} from '@/components/ui/button'
+import SupportingDocumentsForm from './_components/_forms/supporting-documents-form'
+import TrackignRecordsForm from './_components/_forms/tracking-records-form'
 
 
 
@@ -30,7 +32,7 @@ function page() {
           <TabsTrigger value="financial_capability">Financial Capability</TabsTrigger>
           <TabsTrigger value="supporting_docs">Supporting Docs</TabsTrigger>
           <TabsTrigger value="track_records">Track Records</TabsTrigger>
-          <TabsTrigger value="password">Financial Capability</TabsTrigger>
+          {/* <TabsTrigger value="password">Financial Capability</TabsTrigger> */}
         </TabsList>
         <TabsContent value="business_details">
           <BusinessDetailsForm/>
@@ -57,10 +59,31 @@ function page() {
            
         </TabsContent>
         <TabsContent value="financial_capability">
-          Finace
+        <div className='flex justify-between'>
+              <form>
+                <Input type='text'/>
+              </form>
+              <Dialog>
+                <DialogTrigger>
+                  <Button>Edit</Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Edit financial_capability</DialogTitle>
+                    <DialogDescription>
+                     Form to submit to Director
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
+           </div>
         </TabsContent>
-        <TabsContent value="financial_capability">
-          Finace
+        <TabsContent value="supporting_docs">
+        <SupportingDocumentsForm/>
+        </TabsContent>
+      
+        <TabsContent value="track_records">
+        <TrackignRecordsForm/>
         </TabsContent>
       </Tabs>
       
