@@ -7,6 +7,18 @@
       "reviewer_id": 1,
       "comments": "Pending verification of documents",
       "created_at": "2025-01-01",
-      "updated_at": "2025-01-02"
+      "updated_at": "2025-01-02",
+      "application_type": "Company Renewal"
+    },
+    {
+      "application_id": 2,
+      "company_id": 1,
+      "submitted_date": "2025-01-01",
+      "status": "Pending",
+      "reviewer_id": 1,
+      "comments": "Pending verification of documents",
+      "created_at": "2025-01-01",
+      "updated_at": "2025-01-02",
+      "application_type": "Company Registration"
     }
   ]

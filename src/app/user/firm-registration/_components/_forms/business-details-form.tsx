@@ -122,7 +122,7 @@ const formSchema = z.object({
   subContractAgreement: z.string().optional()
 });
 
-export default function FirmRegistrationForm() {
+export default function BusinessDetailsForm() {
 
   const [countryName, setCountryName] = useState < string > ('')
   const [stateName, setStateName] = useState < string > ('')
