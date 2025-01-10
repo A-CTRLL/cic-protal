@@ -1,0 +1,21 @@
+[
+    {
+      "financial_capability_id": 1,
+      "company_id": 1,
+      "annual_turnover_year_1": 5000000,
+      "annual_turnover_year_2": 5500000,
+      "annual_turnover_year_3": 6000000,
+      "available_capital": 2000000,
+      "financial_sponsorship": null,
+      "banks": [
+        {
+          "bank_name": "National Bank",
+          "branch_name": "Downtown Branch",
+          "branch_code": "NB123",
+          "account_holder_name": "BuildCo",
+          "account_number": "1234567890",
+          "account_type": "Current"
+        }
+      ]
+    }
+  ]

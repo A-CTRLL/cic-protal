@@ -1,0 +1,13 @@
+[
+    {
+      "levy_id": 1,
+      "project_id": 1,
+      "levy_payer": "Contractor",
+      "payment_schedule": "Once-Off",
+      "amount_paid": 250000,
+      "total_levy_due": 250000,
+      "balance_due": 0,
+      "payment_status": "Paid",
+      "clearance_certificate": "clearance_cert_1.pdf"
+    }
+  ]

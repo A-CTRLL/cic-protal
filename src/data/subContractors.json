@@ -1,0 +1,14 @@
+[
+    {
+      "sub_contractor_id": 1,
+      "project_id": 1,
+      "name": "PipePros",
+      "country_of_origin": "Eswatini",
+      "scope_of_work": "Plumbing",
+      "contact_details": {
+        "telephone_number": "0123456781",
+        "email": "info@pipepros.com"
+      },
+      "cic_registration_number": "CIC5678"
+    }
+  ]

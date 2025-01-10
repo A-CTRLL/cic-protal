@@ -1,0 +1,14 @@
+[
+    {
+      "supplier_id": 1,
+      "project_id": 1,
+      "name": "ConcretePlus",
+      "country_of_origin": "Eswatini",
+      "scope_of_work_or_supply": "Concrete",
+      "contact_details": {
+        "telephone_number": "0123456782",
+        "email": "sales@concreteplus.com"
+      },
+      "cic_registration_number": "CIC9101"
+    }
+  ]

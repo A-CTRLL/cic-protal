@@ -1,0 +1,11 @@
+[
+    {
+      "work_discipline_id": 1,
+      "project_id": 1,
+      "general_buildings": true,
+      "general_civils": false,
+      "general_electrical": true,
+      "general_mechanical": false,
+      "specialist_works": ["buildings", "electrical"]
+    }
+  ]

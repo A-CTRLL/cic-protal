@@ -1,0 +1,18 @@
+[
+    {
+      "contractor_id": 1,
+      "company_name": "Elite Builders",
+      "category_and_grade": "A-Grade",
+      "certificate_number": "CERT1234",
+      "authorized_contact_person": {
+        "title": "Mr.",
+        "first_name": "John",
+        "surname": "Doe",
+        "designation": "Manager",
+        "tel_number": "0123456789",
+        "fax_number": "0123456788",
+        "mobile_number": "0712345678",
+        "email": "john.doe@elitebuilders.com"
+      }
+    }
+  ]

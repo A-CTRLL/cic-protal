@@ -1,0 +1,25 @@
+[
+    {
+      "project_id": 1,
+      "contractor_id": 1,
+      "owner_id": 1,
+      "bid_reference": "BR12345",
+      "project_title": "Skyline Towers",
+      "project_funder": "City Development Fund",
+      "project_location": {
+        "town_or_inkhundla": "Downtown",
+        "region": "Central",
+        "gps_coordinates": "-26.2041,28.0473"
+      },
+      "date_of_award": "2025-01-01",
+      "description": "A high-rise commercial building in the city center.",
+      "proposed_start_date": "2025-02-01",
+      "proposed_end_date": "2026-12-31",
+      "contract_value_excluding_levy": 5000000,
+      "levy_percentage": 0.05,
+      "total_project_cost_including_levy": 5250000,
+      "project_status": "New",
+      "created_at": "2025-01-01",
+      "updated_at": "2025-01-02"
+    }
+  ]

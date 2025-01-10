@@ -1,0 +1,26 @@
+[
+    {
+      "owner_id": 1,
+      "name": "CityCorp",
+      "id_number": null,
+      "passport_number": null,
+      "postal_address": "P.O. Box 123, Central City",
+      "physical_address": "123 Main St, Downtown",
+      "contact_details": {
+        "telephone_number": "0112345678",
+        "fax_number": "0112345677",
+        "email": "info@citycorp.com"
+      },
+      "owner_category": "Central Government",
+      "authorized_contact_person": {
+        "title": "Ms.",
+        "first_name": "Jane",
+        "surname": "Smith",
+        "designation": "Director",
+        "tel_number": "0123456789",
+        "fax_number": "0123456788",
+        "mobile_number": "0712345679",
+        "email": "jane.smith@citycorp.com"
+      }
+    }
+  ]

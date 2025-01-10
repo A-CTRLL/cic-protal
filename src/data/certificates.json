@@ -1,0 +1,9 @@
+[
+    {
+      "certificate_id": 1,
+      "company_id": 1,
+      "issued_date": "2025-01-05",
+      "expiry_date": "2030-01-05",
+      "certificate_file": "cert_buildco.pdf"
+    }
+  ]

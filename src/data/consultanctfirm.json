@@ -1,0 +1,14 @@
+[
+    {
+      "consultancy_id": 1,
+      "project_id": 1,
+      "profession": "Architect",
+      "name_of_firm": "ArchiTech",
+      "country_of_origin": "Eswatini",
+      "contact_details": {
+        "telephone_number": "0123456780",
+        "email": "contact@architech.com"
+      },
+      "cic_registration_number": "CIC1234"
+    }
+  ]
