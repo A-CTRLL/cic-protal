@@ -28,6 +28,9 @@ function page() {
           <TabsTrigger value="business_details">Business Details</TabsTrigger>
           <TabsTrigger value="shareholders_directors">Shareholders/Directors</TabsTrigger>
           <TabsTrigger value="financial_capability">Financial Capability</TabsTrigger>
+          <TabsTrigger value="supporting_docs">Supporting Docs</TabsTrigger>
+          <TabsTrigger value="track_records">Track Records</TabsTrigger>
+          <TabsTrigger value="password">Financial Capability</TabsTrigger>
         </TabsList>
         <TabsContent value="business_details">
           <BusinessDetailsForm/>
@@ -56,16 +59,11 @@ function page() {
         <TabsContent value="financial_capability">
           Finace
         </TabsContent>
+        <TabsContent value="financial_capability">
+          Finace
+        </TabsContent>
       </Tabs>
-      <Tabs defaultValue="account" className="w-full">
-        <TabsList>
-          <TabsTrigger value="account">Business Details</TabsTrigger>
-          <TabsTrigger value="password">Shareholders/Directors</TabsTrigger>
-          <TabsTrigger value="password">Financial Capability</TabsTrigger>
-        </TabsList>
-        <TabsContent value="account">Make changes to your account here.</TabsContent>
-        <TabsContent value="password">Change your password here.</TabsContent>
-      </Tabs>
+      
       </ContentCard>
     </PageWrapper>
   )
