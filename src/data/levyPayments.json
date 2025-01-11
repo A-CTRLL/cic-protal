@@ -1,13 +1,26 @@
 [
-    {
+  {
       "levy_id": 1,
       "project_id": 1,
-      "levy_payer": "Contractor",
-      "payment_schedule": "Once-Off",
-      "amount_paid": 250000,
-      "total_levy_due": 250000,
+      "levy_percentage": 0.75,
+      "levy_amount": 37500,
+      "paid_amount": 20000,
+      "balance_due": 17500,
+      "status": "Partially Paid",
+      "levy_clearance_certificate": "path/to/clearance1.pdf",
+      "created_at": "2025-01-15",
+      "updated_at": "2025-01-18"
+  },
+  {
+      "levy_id": 2,
+      "project_id": 2,
+      "levy_percentage": 0.5,
+      "levy_amount": 75000,
+      "paid_amount": 75000,
       "balance_due": 0,
-      "payment_status": "Paid",
-      "clearance_certificate": "clearance_cert_1.pdf"
-    }
-  ]
+      "status": "Paid",
+      "levy_clearance_certificate": "path/to/clearance2.pdf",
+      "created_at": "2025-01-20",
+      "updated_at": "2025-01-25"
+  }
+]

@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
 function Header(){
   return (
-    <div className="h-12 w-full drop-shadow-lg bg-slate-50">
+    <div className="h-16 w-full drop-shadow-lg bg-white">
       
     </div>
   )

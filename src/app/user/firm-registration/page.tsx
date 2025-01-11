@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/dialog"
 import {Button} from '@/components/ui/button'
 import AddDirectorForm from './_components/add-director-form'
+import { ScrollArea } from "@/components/ui/scroll-area"
+
 // import SupportingDocumentsForm from './_components/_forms/supporting-documents-form'
 // import TrackignRecordsForm from './_components/_forms/tracking-records-form'
 
@@ -42,24 +44,7 @@ function page() {
           <BusinessDetailsForm/>
         </TabsContent>
         <TabsContent value="shareholders_directors">
-           <div className='flex justify-between'>
-              <form>
-                <Input type='text'/>
-              </form>
-              <Dialog>
-                <DialogTrigger>
-                  <Button>Add Director</Button>
-                </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>Add New Director</DialogTitle>
-                    <DialogDescription>
-                     <AddDirectorForm/>
-                    </DialogDescription>
-                  </DialogHeader>
-                </DialogContent>
-              </Dialog>
-           </div>
+           
            
         </TabsContent>
         <TabsContent value="financial_capability">
@@ -97,3 +82,30 @@ function page() {
 }
 
 export default page
+
+
+
+function ShareholdersDirectors(){
+  return(
+    <div className='flex justify-between'>
+              <form>
+                <Input type='text'/>
+              </form>
+              <Dialog>
+                <DialogTrigger>
+                  <Button>Add Director</Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Add New Director</DialogTitle>
+                    <DialogDescription>
+                     <ScrollArea className="h-72">
+                     <AddDirectorForm/>
+                     </ScrollArea>
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
+           </div>
+  )
+}

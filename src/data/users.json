@@ -1,23 +1,22 @@
-
- [
-      {
-        "user_id": 1,
-        "name": "John Doe",
-        "email": "john.doe@example.com",
-        "password": "hashed_password_1",
-        "role": "Back Office Staff",
-        "is_company_representative": false,
-        "created_at": "2025-01-01",
-        "updated_at": "2025-01-02"
-      },
-      {
-        "user_id": 2,
-        "name": "Jane Smith",
-        "email": "jane.smith@example.com",
-        "password": "hashed_password_2",
-        "role": "Supplier",
-        "is_company_representative": true,
-        "created_at": "2025-01-01",
-        "updated_at": "2025-01-02"
-      }
-    ]
+[
+  {
+      "user_id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "password": "hashed_password_123",
+      "role": "Contractor",
+      "is_company_representative": true,
+      "created_at": "2025-01-01",
+      "updated_at": "2025-01-05"
+  },
+  {
+      "user_id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "password": "hashed_password_456",
+      "role": "Back Office Staff",
+      "is_company_representative": false,
+      "created_at": "2025-01-02",
+      "updated_at": "2025-01-03"
+  }
+]

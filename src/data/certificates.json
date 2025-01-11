@@ -1,9 +1,18 @@
 [
-    {
+  {
       "certificate_id": 1,
       "company_id": 1,
-      "issued_date": "2025-01-05",
-      "expiry_date": "2030-01-05",
-      "certificate_file": "cert_buildco.pdf"
-    }
-  ]
+      "issued_date": "2025-01-10",
+      "expiry_date": "2026-01-10",
+      "certificate_number": "CERT12345",
+      "certificate_file": "path/to/certificate1.pdf"
+  },
+  {
+      "certificate_id": 2,
+      "company_id": 2,
+      "issued_date": null,
+      "expiry_date": null,
+      "certificate_number": null,
+      "certificate_file": null
+  }
+]

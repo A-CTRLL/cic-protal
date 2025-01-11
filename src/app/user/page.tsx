@@ -10,6 +10,7 @@ import {Card} from "@/components/ui/card"
 import { MdBusinessCenter } from "react-icons/md";
 import { GrFolderCycle } from "react-icons/gr";
 import { MdMapsHomeWork } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
 import {
   Table,
   TableBody,
@@ -20,6 +21,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import projects from '@/data/projects.json'
+import Link from 'next/link'
 
 
 function DashboardTitle({title}:{title: string}) {
@@ -87,7 +89,7 @@ function page() {
               <div className='flex justify-between items-center gap-2 '>
               <div className='flex items-center gap-2'>
                  <MdBusinessCenter className='text-3xl'/>
-                  <h3 className='text-sm leading-none '>Company <br/>Management</h3>
+                  <h3 className='text-sm leading-none '>Active <br/>Management</h3>
               </div>
               <Button className='self-end mt-4 '>View</Button>
               </div>
@@ -123,18 +125,26 @@ function page() {
             <TableHead>Title</TableHead>
             <TableHead>Status</TableHead>
             <TableHead className="text-right">Contract Value excl. Levy</TableHead>
+            <TableHead className="text-right">Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           
             {
               projects.filter((project: any) => project.company_id === 1).map((project) => (
-                <TableRow key={project.project_id} className='cursor-pointer'>
-                  <TableCell className="font-medium">{project.proposed_start_date}</TableCell>
-                  <TableCell>{project.project_title}</TableCell>
-                  <TableCell>{project.project_status}</TableCell>
-                  <TableCell className="text-right">{project.contract_value_excluding_levy}</TableCell>
-                </TableRow>
+               
+                  <TableRow key={project.project_id} className='cursor-pointer'>
+                    <TableCell className="font-medium">{project.proposed_start_date}</TableCell>
+                    <TableCell>{project.project_title}</TableCell>
+                    <TableCell>{project.project_status}</TableCell>
+                    <TableCell className="text-right">{project.contract_value_excluding_levy}</TableCell>
+                    <TableCell className="text-right">
+                      <Link href={`/user/project/${project.project_id}`}>
+                          <FaEdit/> View
+                      </Link>
+                    </TableCell>
+                  </TableRow>
+               
               ))
             }
          
