@@ -1,24 +1,31 @@
 [
-  {
-      "application_id": 1,
-      "company_id": 1,
-      "application_type": "New Registration",
-      "submitted_date": "2025-01-01",
-      "status": "Approved",
-      "reviewer_id": 2,
-      "comments": "Application complete and approved.",
-      "created_at": "2025-01-01",
-      "updated_at": "2025-01-05"
-  },
-  {
-      "application_id": 2,
-      "company_id": 2,
-      "application_type": "Renewal",
-      "submitted_date": "2025-01-03",
-      "status": "Under Review",
-      "reviewer_id": null,
-      "comments": null,
-      "created_at": "2025-01-03",
-      "updated_at": "2025-01-04"
-  }
-]
+    {
+        "application_id": 1,
+        "company_id": 1,
+        "application_type": "New Registration",
+        "submitted_date": "2025-01-01",
+        "status": "Approved",
+        "reviewer_id": 2,
+        "comments": [
+            {
+                "date": "2025-01-05",
+                "comment": "Application complete and approved.",
+                "person": "Reviewer 2"
+            }
+        ],
+        "created_at": "2025-01-01",
+        "updated_at": "2025-01-05"
+    },
+    {
+        "application_id": 2,
+        "company_id": 2,
+        "application_type": "Renewal",
+        "submitted_date": "2025-01-03",
+        "status": "Under Review",
+        "reviewer_id": null,
+        "comments": [],
+        "created_at": "2025-01-03",
+        "updated_at": "2025-01-04"
+    }
+  ]
+  
