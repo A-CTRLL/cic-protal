@@ -3,7 +3,7 @@ import {Card} from '@/components/ui/card'
 
 function ContentCard({children}:{children: React.ReactNode}) {
   return (
-    <Card className='drop-shadow-md p-4'>
+    <Card className='drop-shadow-md flex flex-col items-start p-4'>
         {children}
     </Card>
   )

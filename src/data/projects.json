@@ -1,25 +1,98 @@
 [
-    {
-      "project_id": 1,
-      "contractor_id": 1,
-      "owner_id": 1,
-      "bid_reference": "BR12345",
-      "project_title": "Skyline Towers",
-      "project_funder": "City Development Fund",
-      "project_location": {
-        "town_or_inkhundla": "Downtown",
-        "region": "Central",
-        "gps_coordinates": "-26.2041,28.0473"
-      },
-      "date_of_award": "2025-01-01",
-      "description": "A high-rise commercial building in the city center.",
-      "proposed_start_date": "2025-02-01",
-      "proposed_end_date": "2026-12-31",
-      "contract_value_excluding_levy": 5000000,
-      "levy_percentage": 0.05,
-      "total_project_cost_including_levy": 5250000,
-      "project_status": "New",
-      "created_at": "2025-01-01",
-      "updated_at": "2025-01-02"
-    }
-  ]
+  {
+    "project_id": 1,
+    "contractor_id": 1,
+    "company_id": 1,
+    "owner_id": 1,
+    "bid_reference": "BR12345",
+    "project_title": "Skyline Towers",
+    "project_funder": "City Development Fund",
+    "project_location": {
+      "town_or_inkhundla": "Downtown",
+      "region": "Central",
+      "gps_coordinates": "-26.2041,28.0473"
+    },
+    "date_of_award": "2025-01-01",
+    "description": "A high-rise commercial building in the city center.",
+    "proposed_start_date": "2025-02-01",
+    "proposed_end_date": "2026-12-31",
+    "contract_value_excluding_levy": 5000000,
+    "levy_percentage": 0.05,
+    "total_project_cost_including_levy": 5250000,
+    "project_status": "New",
+    "created_at": "2025-01-01",
+    "updated_at": "2025-01-02"
+  },
+  {
+    "project_id": 2,
+    "contractor_id": 2,
+    "company_id": 2,
+    "owner_id": 2,
+    "bid_reference": "BR67890",
+    "project_title": "Riverfront Park",
+    "project_funder": "Local Municipality",
+    "project_location": {
+      "town_or_inkhundla": "Riverside",
+      "region": "South",
+      "gps_coordinates": "-26.1875,28.0236"
+    },
+    "date_of_award": "2025-03-15",
+    "description": "A public park with recreational facilities.",
+    "proposed_start_date": "2025-04-15",
+    "proposed_end_date": "2025-12-31",
+    "contract_value_excluding_levy": 1200000,
+    "levy_percentage": 0.03,
+    "total_project_cost_including_levy": 1236000,
+    "project_status": "In Progress",
+    "created_at": "2025-03-15",
+    "updated_at": "2025-03-16"
+  },
+  {
+    "project_id": 3,
+    "contractor_id": 3,
+    "company_id": 3,
+    "owner_id": 3,
+    "bid_reference": "BR45678",
+    "project_title": "School Renovation",
+    "project_funder": "Department of Education",
+    "project_location": {
+      "town_or_inkhundla": "Suburbs",
+      "region": "North",
+      "gps_coordinates": "-26.2214,28.0652"
+    },
+    "date_of_award": "2024-12-20",
+    "description": "Renovation of a primary school building.",
+    "proposed_start_date": "2025-01-10",
+    "proposed_end_date": "2025-06-30",
+    "contract_value_excluding_levy": 850000,
+    "levy_percentage": 0.04,
+    "total_project_cost_including_levy": 884000,
+    "project_status": "Completed",
+    "created_at": "2024-12-20",
+    "updated_at": "2025-07-05"
+  },
+  {
+    "project_id": 4,
+    "contractor_id": 1, 
+    "company_id": 1, 
+    "owner_id": 4, 
+    "bid_reference": "BR90123",
+    "project_title": "Residential Complex",
+    "project_funder": "Private Developer",
+    "project_location": {
+      "town_or_inkhundla": "Northern Suburbs",
+      "region": "North",
+      "gps_coordinates": "-26.1958,28.0789"
+    },
+    "date_of_award": "2024-11-15",
+    "description": "Construction of a new residential complex.",
+    "proposed_start_date": "2024-12-01",
+    "proposed_end_date": "2026-09-30",
+    "contract_value_excluding_levy": 3800000,
+    "levy_percentage": 0.05,
+    "total_project_cost_including_levy": 3990000,
+    "project_status": "In Progress",
+    "created_at": "2024-11-15",
+    "updated_at": "2025-01-10"
+  }
+]

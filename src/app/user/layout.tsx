@@ -11,10 +11,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
       <UserSidebar/>
-      <main className="w-full">
+      <main className="w-full bg-slate-100">
         {/* <SidebarTrigger /> */}
+        <Header/>
         {children}
       </main>
     </SidebarProvider>
+  )
+}
+
+function Header(){
+  return (
+    <div className="h-12 w-full drop-shadow-lg bg-slate-50">
+      
+    </div>
   )
 }

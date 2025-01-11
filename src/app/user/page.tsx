@@ -1,154 +1,152 @@
-"use client";
-
-import PageTitle from '@/components/page-title';
-import PageWrapper from '@/components/page-wrapper';
-import React from 'react';
-import { useState } from "react";
-// import { toast } from "sonner";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import React from 'react'
+import PageWrapper from '@/components/page-wrapper'
+import PageTitle from '@/components/page-title'
+import CardContent from '@/components/content-card'
+import { IoConstructSharp, IoDocumentText } from "react-icons/io5";
+import { GiWallet } from "react-icons/gi";
+import { PiCoinsFill } from "react-icons/pi";
+import { Button} from "@/components/ui/button"
+import {Card} from "@/components/ui/card"
+import { MdBusinessCenter } from "react-icons/md";
+import { GrFolderCycle } from "react-icons/gr";
+import { MdMapsHomeWork } from "react-icons/md";
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { format } from "date-fns";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Calendar } from "@/components/ui/calendar";
-import { Calendar as CalendarIcon } from "lucide-react";
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+import projects from '@/data/projects.json'
 
-const formSchema = z.object({
-  tofrom: z.coerce.date(),
-  dateTo: z.coerce.date()
-});
 
-export default function MyForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      tofrom: new Date(),
-      dateTo: new Date(),
-    },
-  });
+function DashboardTitle({title}:{title: string}) {
+  return (
+    <h2 className='text-2xl pt-8 pb-3 '>{title}</h2>
+  )
+}
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    try {
-      console.log(values);
-      // toast(
-      //   <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-      //     <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-      //   </pre>
-      // );
-    } catch (error) {
-      console.error("Form submission error", error);
-      // toast.error("Failed to submit the form. Please try again.");
-    }
-  }
 
+function page() {
   return (
     <PageWrapper>
-      <PageTitle title="Active Applications" />
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8 max-w-3xl mx-auto py-10"
-        >
-          <div className="grid grid-cols-12 gap-4">
-            {/* From Date Field */}
-            <div className="col-span-6">
-              <FormField
-                control={form.control}
-                name="tofrom"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col">
-                    <FormLabel>From</FormLabel>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <FormControl>
-                          <Button
-                            variant={"outline"}
-                            className={cn(
-                              "w-[240px] pl-3 text-left font-normal",
-                              !field.value && "text-muted-foreground"
-                            )}
-                          >
-                            {field.value
-                              ? format(field.value, "PPP")
-                              : "Pick a date"}
-                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                          </Button>
-                        </FormControl>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={field.value}
-                          onSelect={field.onChange}
-                          initialFocus
-                        />
-                      </PopoverContent>
-                    </Popover>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
+      <PageTitle title='Welcome, Bob'/>
+      <DashboardTitle title='Overview'/>
+      <section className='grid grid-cols-1 sm:grid-cols-4 gap-4'>
+          
+          <Card>
+              <span className='text-5xl font-bold text-center'>
+                {
+                  projects.filter(project => project.project_status === 'In Progress').length
+                }
+              </span>
+              <div className='flex items-center gap-2'>
+                 <IoConstructSharp className='text-3xl'/>
+                  <h3 className='text-md leading-none'>Active Projects</h3>
+              </div>
+          </Card>
+          <Card>
+              <span className='text-5xl font-bold text-center'>04</span>
+              <div className='flex items-center gap-2'>
+                 <IoDocumentText className='text-3xl'/>
+                  <h3 className='text-md leading-none'>Submitted Application</h3>
+              </div>
+          </Card>
+          <Card>
+              <span className='text-5xl font-bold text-center'>1M</span>
+              <div className='flex items-center gap-2'>
+                 <GiWallet className='text-3xl'/>
+                  <h3 className='text-md leading-none'>Paid Levies</h3>
+              </div>
+          </Card>
+          <Card>
+              <span className='text-5xl font-bold text-center'>100k</span>
+              <div className='flex items-center gap-2'>
+                 <PiCoinsFill className='text-3xl'/>
+                  <h3 className='text-md leading-none'>Unpaid Levies</h3>
+              </div>
+          </Card>
+      </section>
+      <DashboardTitle title='Tasks & Notifications'/>
+      <section className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+          <Card>
+              <span className='text-xl font-bold text-center'>Tasks</span>
+              
+          </Card>
+          <Card>
+              <span className='text-xl font-bold text-center'>Notifications</span>
+              
+          </Card>
+      </section>
+      <DashboardTitle title='Company Overview'/>
+      <section className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
+        
+          <Card>  
+              <div className='flex justify-between items-center gap-2 '>
+              <div className='flex items-center gap-2'>
+                 <MdBusinessCenter className='text-3xl'/>
+                  <h3 className='text-sm leading-none '>Company <br/>Management</h3>
+              </div>
+              <Button className='self-end mt-4 '>View</Button>
+              </div>
+          </Card>
+          <Card>  
+              <div className='flex justify-between items-center gap-2 '>
+              <div className='flex items-center gap-2'>
+                 <GrFolderCycle className='text-3xl'/>
+                  <h3 className='text-sm leading-none '>Company Renewal <br/>Application</h3>
+              </div>
+              <Button className='self-end mt-4' disabled>View</Button>
+              </div>
+          </Card>
+          <Card>  
+              <div className='flex justify-between items-center gap-2 '>
+              <div className='flex items-center gap-2'>
+                 <MdMapsHomeWork className='text-3xl'/>
+                  <h3 className='text-sm leading-none '>Company Renewal <br/>Application</h3>
+              </div>
+              <Button className='self-end mt-4'>View</Button>
+              </div>
+          </Card>         
+      </section>
 
-            {/* To Date Field */}
-            <div className="col-span-6">
-              <FormField
-                control={form.control}
-                name="dateTo"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col">
-                    <FormLabel>To</FormLabel>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <FormControl>
-                          <Button
-                            variant={"outline"}
-                            className={cn(
-                              "w-[240px] pl-3 text-left font-normal",
-                              !field.value && "text-muted-foreground"
-                            )}
-                          >
-                            {field.value
-                              ? format(field.value, "PPP")
-                              : "Pick a date"}
-                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                          </Button>
-                        </FormControl>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          mode="single"
-                          selected={field.value}
-                          onSelect={field.onChange}
-                          initialFocus
-                        />
-                      </PopoverContent>
-                    </Popover>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-          </div>
+      <DashboardTitle title='Project Overview'/>
+      <Card>
+           
+      <Table>
+        {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[200px]">Start Date</TableHead>
+            <TableHead>Title</TableHead>
+            <TableHead>Status</TableHead>
+            <TableHead className="text-right">Contract Value excl. Levy</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          
+            {
+              projects.filter((project: any) => project.company_id === 1).map((project) => (
+                <TableRow key={project.project_id} className='cursor-pointer'>
+                  <TableCell className="font-medium">{project.proposed_start_date}</TableCell>
+                  <TableCell>{project.project_title}</TableCell>
+                  <TableCell>{project.project_status}</TableCell>
+                  <TableCell className="text-right">{project.contract_value_excluding_levy}</TableCell>
+                </TableRow>
+              ))
+            }
+         
+        </TableBody>
+      </Table>
 
-          <Button type="submit">Apply & View</Button>
-        </form>
-      </Form>
+
+
+      </Card>
+
     </PageWrapper>
-  );
+  )
 }
+
+export default page

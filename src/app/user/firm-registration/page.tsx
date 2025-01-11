@@ -1,7 +1,7 @@
 import PageTitle from '@/components/page-title'
 import PageWrapper from '@/components/page-wrapper'
 import React from 'react'
-import BusinessDetailsForm from './_components/_forms/business-details-form'
+import BusinessDetailsForm from './_components/business-details-form'
 import ContentCard from '@/components/content-card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Input } from "@/components/ui/input"
@@ -14,8 +14,9 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import {Button} from '@/components/ui/button'
-import SupportingDocumentsForm from './_components/_forms/supporting-documents-form'
-import TrackignRecordsForm from './_components/_forms/tracking-records-form'
+import AddDirectorForm from './_components/add-director-form'
+// import SupportingDocumentsForm from './_components/_forms/supporting-documents-form'
+// import TrackignRecordsForm from './_components/_forms/tracking-records-form'
 
 
 
@@ -23,7 +24,10 @@ import TrackignRecordsForm from './_components/_forms/tracking-records-form'
 function page() {
   return (
     <PageWrapper>
-      <PageTitle title='Company Management'/>
+      <div className='flex justify-between items-center'>
+         <PageTitle title='Company Management'/>
+         <Button>Submit Application</Button>
+      </div>
       <ContentCard>
       <Tabs defaultValue="business_details" className="w-full">
         <TabsList>
@@ -50,7 +54,7 @@ function page() {
                   <DialogHeader>
                     <DialogTitle>Add New Director</DialogTitle>
                     <DialogDescription>
-                     Form to submit to Director
+                     <AddDirectorForm/>
                     </DialogDescription>
                   </DialogHeader>
                 </DialogContent>
@@ -71,7 +75,7 @@ function page() {
                   <DialogHeader>
                     <DialogTitle>Edit financial_capability</DialogTitle>
                     <DialogDescription>
-                     Form to submit to Director
+                     Financial
                     </DialogDescription>
                   </DialogHeader>
                 </DialogContent>
@@ -79,11 +83,11 @@ function page() {
            </div>
         </TabsContent>
         <TabsContent value="supporting_docs">
-        <SupportingDocumentsForm/>
+        {/* <SupportingDocumentsForm/> */}
         </TabsContent>
       
         <TabsContent value="track_records">
-        <TrackignRecordsForm/>
+        {/* <TrackignRecordsForm/> */}
         </TabsContent>
       </Tabs>
       
