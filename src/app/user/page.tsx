@@ -87,7 +87,7 @@ function page() {
               <div className='flex justify-between items-center gap-2 '>
               <div className='flex items-center gap-2'>
                  <MdBusinessCenter className='text-3xl'/>
-                  <h3 className='text-sm leading-none '>Company <br/>Management</h3>
+                  <h3 className='text-sm leading-none '>Active <br/>Management</h3>
               </div>
               <Button className='self-end mt-4 '>View</Button>
               </div>

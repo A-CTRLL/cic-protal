@@ -94,7 +94,7 @@ import { usePathname } from "next/navigation"
             
                 <SidebarMenuItem className={`${url === '/back-office' && 'font-bold' }`}>
                     <SidebarMenuButton asChild>
-                        <a href="/user">Active Applications</a>
+                        <a href="/user">Dashboard</a>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             

@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
       <BackOfficeSidebar/>
-      <main className="w-full">
+      <main className="w-full bg-slate-100">
         {/* <SidebarTrigger /> */}
         {children}
       </main>
