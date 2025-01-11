@@ -22,14 +22,24 @@ import { usePathname } from "next/navigation"
     const userNavLinks=[
     
         {
-            title: "Users",
-            url: "/back-office/maintenance/users",
+            title: "Companies",
+            url: "/back-office/maintenance/companies",
             label:'maintenance'
         },
         {
-            title: "Settings",
-            url: "/back-office/maintenance/settings",
-            label:'maintenance'
+            title: "Company Registration Applications",
+            url: "/back-office/applications/company-registrations",
+            label:'application'
+        },
+        {
+          title: "Project Registration Applications",
+          url: "/back-office/applications/project-registrations",
+          label:'application'
+        },
+        {
+          title: "Work Disciplines Application",
+          url: "/back-office/maintenance/settings",
+          label:'application'
         },
         {
             title: "Buidling Works Categories",
@@ -97,6 +107,24 @@ import { usePathname } from "next/navigation"
                         <a href="/user">Dashboard</a>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
+            <SidebarGroupLabel className="flex items-center gap-1 border-b">
+              Applications
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {
+                    userNavLinks.filter(link => link.label === 'application').map((link) => (
+                      <SidebarMenuItem key={link.title} className={`${url === link.url ? 'font-bold' : ''}`}>
+                        <SidebarMenuButton asChild>
+                          <a href={link.url}>
+                            {link.title}
+                          </a>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    ))
+                }
+              </SidebarMenu>
+            </SidebarGroupContent>
             
             <SidebarGroupLabel className="flex items-center gap-1 border-b">
               Maintenance

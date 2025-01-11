@@ -72,14 +72,14 @@ function page() {
               <span className='text-5xl font-bold text-center'>1M</span>
               <div className='flex items-center gap-2'>
                  <GiWallet className='text-3xl'/>
-                  <h3 className='text-md leading-none'>Levy Connected</h3>
+                  <h3 className='text-md leading-none'>Active Projects</h3>
               </div>
           </Card>
           <Card>
               <span className='text-5xl font-bold text-center'>100k</span>
               <div className='flex items-center gap-2'>
                  <PiCoinsFill className='text-3xl'/>
-                  <h3 className='text-md leading-none'>Levy OutStanding</h3>
+                  <h3 className='text-md leading-none'>Active</h3>
               </div>
           </Card>
       </section>

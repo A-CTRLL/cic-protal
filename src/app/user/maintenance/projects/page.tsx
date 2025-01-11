@@ -32,6 +32,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Button } from 'react-day-picker'
+import projects from '@/data/projects.json'
 
 
 
@@ -39,12 +40,7 @@ import { Button } from 'react-day-picker'
 
 function Page() {
 
-  const [projects, setProjects] = React.useState([])
-
-  useEffect(() => {
-    const projectsData = JSON.parse(localStorage.getItem('projects') || '[]');
-    setProjects(projectsData)
-  }, [])
+  
 
 
   return (
