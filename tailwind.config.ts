@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import bgImg from './public/cic_bg.jpg'
 
 export default {
     darkMode: ["class"],
@@ -9,6 +10,9 @@ export default {
   ],
   theme: {
   	extend: {
+		backgroundImage:{
+            'auth-bg': './public/cic_bg.jpg',
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
