@@ -21,20 +21,30 @@ import { usePathname } from "next/navigation"
 
     const userNavLinks=[
         {
-          title: "Construction Firm Registration",
-          url: "/user/firm-registration",
+          title: "New Applications",
+          url: "/user/applications/new",
           label:'applications'
         },
         {
-          title: "Register New Project",
-          url: "/user/project-registration",
+          title: "Active Applications",
+          url: "/user/applications/active",
           label:'applications'
+        },
+        {
+          title: "Rejected Applications",
+          url: "/user/applications/rejected",
+          label:'applications'
+        },
+        {
+          title: "Company",
+          url: "/user/maintenance/company",
+          label:'maintenance'
         },
         {
             title: "Project",
             url: "/user/maintenance/projects",
             label:'maintenance'
-        },
+        },  
         {
             title: "Transaction History",
             url: "/user/enquiries/transaction-history",

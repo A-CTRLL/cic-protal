@@ -14,6 +14,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { Badge } from "@/components/ui/badge"
+
+
 
 
 function page() {
@@ -21,9 +24,26 @@ function page() {
   const {company_id} = useParams()
 
   const company=companies.find((company: any) => company.company_id == company_id)
+
   return (
     <PageWrapper>
-        <PageTitle title={`${company?.name}`}/>
+        <div className='flex items-center justify-between'>
+          <PageTitle title={`${company?.name}`}/>
+          <Badge variant="outline">{`${company?.business_type}`}</Badge>
+        </div>
+
+        <Card>
+          <h1>
+            <strong>Address: </strong>{company?.head_office_address}
+          </h1>
+          <h1>
+            <strong>Email: </strong>{company?.email}
+          </h1>
+          <h1>
+            <strong>Contact Number: </strong>{company?.contact_number}
+          </h1>
+        </Card>
+
         <div className='flex gap-2 my-4'>
           <GradingCompany/>
           <Button>Suspend</Button>

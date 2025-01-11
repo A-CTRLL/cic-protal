@@ -56,7 +56,6 @@ import {
 
 const formSchema = z.object({
   name: z.string(),
-  annual_turnover: z.string(),
   trading_style: z.string(),
   authorized_officer_name: z.string(),
   registration_number: z.string(),
@@ -119,7 +118,7 @@ export default function BusinessDetailsForm() {
 
         <FormField
           control={form.control}
-          name="annual_turnover"
+          name="name"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Business Name</FormLabel>

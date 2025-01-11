@@ -27,6 +27,11 @@ import { usePathname } from "next/navigation"
             label:'maintenance'
         },
         {
+          title: "Projects",
+          url: "/back-office/maintenance/companies",
+          label:'maintenance'
+        },
+        {
             title: "Company Registration Applications",
             url: "/back-office/applications/company-registrations",
             label:'application'
@@ -104,7 +109,7 @@ import { usePathname } from "next/navigation"
             
                 <SidebarMenuItem className={`${url === '/back-office' && 'font-bold' }`}>
                     <SidebarMenuButton asChild>
-                        <a href="/user">Dashboard</a>
+                        <a href="/back-office">Dashboard</a>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             <SidebarGroupLabel className="flex items-center gap-1 border-b">

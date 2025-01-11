@@ -1,7 +1,7 @@
 import PageTitle from '@/components/page-title'
 import PageWrapper from '@/components/page-wrapper'
 import React from 'react'
-import BusinessDetailsForm from './_components/business-details-form'
+import BusinessDetailsForm from '../_components/business-details-form'
 import ContentCard from '@/components/content-card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Input } from "@/components/ui/input"
@@ -14,7 +14,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import {Button} from '@/components/ui/button'
-import AddDirectorForm from './_components/add-director-form'
+import AddDirectorForm from '../_components/add-director-form'
 import { ScrollArea } from "@/components/ui/scroll-area"
 
 // import SupportingDocumentsForm from './_components/_forms/supporting-documents-form'
