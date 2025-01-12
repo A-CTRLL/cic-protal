@@ -19,13 +19,13 @@ import Link from 'next/link'
 function page() {
   return (
     <PageWrapper>
-        <PageTitle title='Companies'/>
+        <PageTitle title='Projects'/>
         <Card>
         <Table>
         <TableCaption>A list of all the companies.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className="">Date</TableHead>
+            <TableHead className="">project Title</TableHead>
             <TableHead>Company</TableHead>
             <TableHead>Status</TableHead>
             <TableHead className="text-right">Grade</TableHead>

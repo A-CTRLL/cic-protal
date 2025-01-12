@@ -58,8 +58,8 @@ function Page() {
       <Table className=''>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[150px]">Project Code</TableHead>
-            <TableHead>Project Name</TableHead>
+            <TableHead className="w-[150px]">Project Title</TableHead>
+            <TableHead>Project Description</TableHead>
             <TableHead>Levy Amount</TableHead>
             <TableHead>Status</TableHead>
             <TableHead>Certificate</TableHead>
@@ -68,11 +68,11 @@ function Page() {
         </TableHeader>
         <TableBody>
           {projects.map((project: any) => (
-            <TableRow key={project?.projectCode}>
-              <TableCell  className="font-medium">{project?.projectCode}</TableCell>
-              <TableCell>{project?.projectName}</TableCell>
-              <TableCell>{project?.levyAmount}</TableCell>
-              <TableCell>{project?.status}</TableCell>
+            <TableRow key={project?.project_title}>
+              <TableCell  className="font-medium">{project?.project_funder}</TableCell>
+              <TableCell>{project?.description}</TableCell>
+              <TableCell>{project?.contract_value_excluding_levy}</TableCell>
+              <TableCell>{project?.project_status}</TableCell>
               <TableCell className='flex items-center'>
                 <a href="#" className="text-blue-500 flex gap-1 items-center"><MdDownloadForOffline/> Download</a>
               </TableCell>
