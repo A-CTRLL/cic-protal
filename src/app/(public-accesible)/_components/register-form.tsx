@@ -38,18 +38,39 @@ import {
 // } from "@/components/ui/password-input"
 import { useAtom,atom } from 'jotai'
 import { useRouter } from "next/navigation"
+import { Switch } from "@/components/ui/switch"
+
+const cicEmailRegex = /^[a-zA-Z0-9._%+-]+@cic\.co\.sz$/;
+
 
 const formSchema = z.object({
   email: z.string(),
+  name:z.string(),
+  is_company_representative:z.boolean(),
   password: z.string()
     .min(8, "Password must be at least 8 characters")
     .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
     .regex(/[a-z]/, "Password must contain at least one lowercase letter")
     .regex(/[0-9]/, "Password must contain at least one number"),
-  confirmPassword: z.string()
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords don't match",
-  path: ["confirmPassword"], // path of error
+}).superRefine((data, ctx) => {
+
+  // Company representatives must use company email
+  if (data.is_company_representative && !cicEmailRegex.test(data.email)) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: "Company representatives must use a @cic.co.sz email address",
+      path: ["email"],
+    });
+  }
+  
+  // Company email holders must register as representatives
+  if (cicEmailRegex.test(data.email) && !data.is_company_representative) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: "Company email detected. Please register as a company representative instead.",
+      path: ["email"],
+    });
+  }
 });
 
 export default function RegisterForm() {
@@ -79,7 +100,7 @@ export default function RegisterForm() {
       const newUser = {
         id: Date.now(),
         email: values.email.toLowerCase(),
-        
+        name: values.name,
         password: values.password, 
         createdAt: new Date().toISOString()
       };
@@ -95,7 +116,11 @@ export default function RegisterForm() {
       form.reset();
   
       // Redirect after successful registration
-      await router.push("/user/firm-registration");
+      if(values.is_company_representative){
+        router.push('/back-office')
+      }else(
+        router.push('/user')
+      );
   
     } catch (error) {
       console.error("Form submission error:", error);
@@ -114,6 +139,25 @@ export default function RegisterForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="">
+
+      <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <Input 
+                placeholder=""
+                
+                type=""
+                {...field} />
+              </FormControl>
+              
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         
         <FormField
           control={form.control}
@@ -150,7 +194,7 @@ export default function RegisterForm() {
         />
         
         
-        <FormField
+        {/* <FormField
           control={form.control}
           name="confirmPassword"
           render={({ field }) => (
@@ -163,10 +207,31 @@ export default function RegisterForm() {
               <FormMessage />
             </FormItem>
           )}
-        />
+        /> */}
+
+        <FormField
+              control={form.control}
+              name="is_company_representative"
+              render={({ field }) => (
+                <FormItem className="flex flex-row mt-2 items-center justify-between rounded-lg border p-4">
+                  <div className="space-y-0.5">
+                    <FormLabel>Are you a CIC staff representative?</FormLabel>
+                    <FormDescription className="text-xs">Please note you will need email provided by CIC to register as CIC user.</FormDescription>
+                  </div>
+                  <FormControl>
+                    <Switch
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    
+                      aria-readonly
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
         
         
-        <Button className="mt-4" type="submit">Submit</Button>
+        <Button className="mt-4 w-full" type="submit">Register Account</Button>
       </form>
     </Form>
   )
