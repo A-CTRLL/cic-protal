@@ -26,8 +26,8 @@ import { usePathname } from "next/navigation"
           label:'applications'
         },
         {
-          title: "Active Applications",
-          url: "/user/applications/active",
+          title: "Active & Pending Applications",
+          url: "/user/applications/active-pending",
           label:'applications'
         },
         {
@@ -41,8 +41,8 @@ import { usePathname } from "next/navigation"
           label:'maintenance'
         },
         {
-            title: "Project",
-            url: "/user/maintenance/projects",
+            title: "Project Resource Pool",
+            url: "/user/maintenance/project-resource-pool",
             label:'maintenance'
         },  
         {

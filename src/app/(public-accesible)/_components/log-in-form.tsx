@@ -99,8 +99,12 @@ export default function LoginForm() {
       );
       localStorage.setItem('users', JSON.stringify(updatedUsers));
   
-      // Redirect to dashboard
-      await router.push("/user");
+      // Redirect to dashboard based on user type
+      if(user.is_company_representative){
+        router.push("/back-office");
+      }else{
+        router.push("/user");
+      }
   
     } catch (error) {
       console.error("Login error:", error);

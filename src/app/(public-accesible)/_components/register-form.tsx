@@ -124,7 +124,6 @@ export default function RegisterForm() {
   
     } catch (error) {
       console.error("Form submission error:", error);
-      
       // More specific error messages based on error type
       if (error instanceof SyntaxError) {
         toast.error("Invalid data format. Please try again.");
@@ -145,7 +144,7 @@ export default function RegisterForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Name</FormLabel>
               <FormControl>
                 <Input 
                 placeholder=""
@@ -164,7 +163,7 @@ export default function RegisterForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Email</FormLabel>
               <FormControl>
                 <Input 
                 placeholder=""

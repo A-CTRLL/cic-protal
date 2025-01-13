@@ -42,11 +42,6 @@ import { usePathname } from "next/navigation"
           label:'application'
         },
         {
-          title: "Work Disciplines Application",
-          url: "/back-office/maintenance/settings",
-          label:'application'
-        },
-        {
             title: "Buidling Works Categories",
             url: "/back-office/maintenance/building-works-categories",
             label:'maintenance'

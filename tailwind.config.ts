@@ -10,9 +10,6 @@ export default {
   ],
   theme: {
   	extend: {
-		backgroundImage:{
-            'auth-bg': './public/cic_bg.jpg',
-		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

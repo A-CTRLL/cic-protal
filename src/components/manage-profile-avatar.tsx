@@ -11,7 +11,7 @@ function ManageProfileAvatar({avator}:any) {
       </Avatar>
       <div className='flex flex-col gap-0'>
           <p className='text-sm'>{avator.email}</p>
-          <p className='text-lg font-bold'>Company Name</p>
+          <p className='text-lg font-bold'>CCG Systems</p>
       </div>
 
     </div>

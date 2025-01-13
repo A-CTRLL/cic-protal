@@ -132,7 +132,6 @@ function page() {
           
             {
               projects.filter((project: any) => project.company_id === 1).map((project) => (
-               
                   <TableRow key={project.project_id} className='cursor-pointer'>
                     <TableCell className="font-medium">{project.proposed_start_date}</TableCell>
                     <TableCell>{project.project_title}</TableCell>
@@ -143,8 +142,7 @@ function page() {
                           <FaEdit/> View
                       </Link>
                     </TableCell>
-                  </TableRow>
-               
+                  </TableRow>        
               ))
             }
          

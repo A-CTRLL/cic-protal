@@ -175,7 +175,7 @@ export default function page(){
                     </DialogTrigger>
                     <DialogContent>
                         <DialogHeader>
-                        <DialogTitle>Are you absolutely sure?</DialogTitle>
+                        <DialogTitle>Reject or Approve</DialogTitle>
                         <DialogDescription>
                             <ApplicationReviewForm/>
                         </DialogDescription>
@@ -196,8 +196,8 @@ export default function page(){
                         <ApplicationField field="Type of Application" value={application?.application_type}/>
                         <ApplicationField field='Application Date' value={application?.submitted_date}/>
                     </TabsContent>
-                    <TabsContent value="section_b">Change your password here.</TabsContent>
-                    <TabsContent value="section_c">Change your password here.</TabsContent>
+                    <TabsContent value="section_b">All the data of the section b form</TabsContent>
+                    <TabsContent value="section_c">All the data of the section c form</TabsContent>
                 </Tabs>
            </Card>
        </PageWrapper>

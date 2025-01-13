@@ -4,7 +4,7 @@ import React from 'react'
 import PageWrapper from '@/components/page-wrapper'
 import PageTitle from '@/components/page-title'
 import {
-  useState
+  useState,useEffect
 } from "react"
 import {
   toast
@@ -39,12 +39,74 @@ import {
   SelectTrigger,
   SelectValue
 } from "@/components/ui/select"
+import Link from 'next/link'
+
+
+import {Card} from '@/components/ui/card'
+import ProjectLevyForm from '../_components/project-levy-form'
 
 function page() {
+  const [formType,setFormType] = useState('CICF_1')
+
+
+  useEffect(() => {
+      
+  },[formType])
+
   return (
     <PageWrapper>
         <PageTitle title='New Application'/>
-        <ApplicationForm/>
+        <Select onValueChange={setFormType} value={formType}>
+        <SelectTrigger className="">
+            <SelectValue placeholder="Select Application Type" />
+        </SelectTrigger>
+        <SelectContent>
+            <SelectItem value="CICF_1" >CICF 1- Construction Firm Registration</SelectItem>
+            <SelectItem value="CICF_8">CICF 8- Construction Projects & Levy Assesment form</SelectItem>   
+            <SelectItem value="CICF_9">CICF 9- SOME form</SelectItem>        
+        </SelectContent>
+        </Select>
+       <Card className='mt-4'>
+
+        {
+            formType==='' 
+            && 
+            <div>
+               Select Application you would like to submit
+            </div>
+        }
+        {
+            formType==='CICF_1'
+            &&
+            <div className='flex flex-col justify-center items-center'>
+                <FormHeader title='CONSTRUCTION FIRMS REGISTRATION- CICF 1'/>
+                <h1 className='text-center text-green-600 text-xl uppercase'> You have meet criteria to apply for this application </h1>
+                <Button className='mt-4 self-center'>Submit Application for Review</Button>
+            </div>
+        }
+        {
+            formType==='CICF_8' && 
+            <div className='flex flex-col justify-center items-center'>
+                <FormHeader title='CONSTRUCTION PROJECTS AND LEVY ASSESSMENT REGISTRATION- CICF 8'/>
+                <ProjectLevyForm/>
+
+                 This is being developed
+            </div>
+         }
+         {
+            formType==='CICF_9' && 
+            <div className='flex flex-col justify-center items-center'>
+                <FormHeader title='CONSTRUCTION PROJECTS AND LEVY ASSESSMENT REGISTRATION- CICF 8'/>
+                <h1 className='text-center text-red-600 text-xl uppercase'> Your Company has Outstanding info & Does not meet criteria to apply for this application. You are missing the following: Project Manager, and Contractors
+                     </h1>
+                <Link href={'/user/maintanance/project-resource-pool'}>
+                    <Button className='mt-4'>
+                        UPDATE DETAILS
+                    </Button>
+                </Link>
+            </div>
+         }
+        </Card>
     </PageWrapper>
   )
 }
@@ -54,63 +116,11 @@ export default page
 
 
 
-const formSchema = z.object({
-  application_type: z.string()
-});
-
-function ApplicationForm() {
-
-  const form = useForm < z.infer < typeof formSchema >> ({
-    resolver: zodResolver(formSchema),
-
-  })
-
-  function onSubmit(values: z.infer < typeof formSchema > ) {
-    try {
-      console.log(values);
-
-      
-
-      toast(
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      );
-    } catch (error) {
-      console.error("Form submission error", error);
-      toast.error("Failed to submit the form. Please try again.");
-    }
-  }
-
+function FormHeader({title}:{title:string}) {
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-3xl mx-auto py-10">
-        
-        <FormField
-          control={form.control}
-          name="application_type"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Application Type</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="CIF 1">CIF 1-Company Registration</SelectItem>
-                  <SelectItem value="CIF 2">CIF 2-New renewal</SelectItem>
-                  <SelectItem value="CIF 3">CIF 3-Project</SelectItem>
-                </SelectContent>
-              </Select>
-                
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+    <div className="h-16 w-full mb-4 drop-shadow-lg text-xl  uppercase flex items-center justify-center text-white bg-black rounded-lg">
+        {title}
+    </div>
   )
 }
+

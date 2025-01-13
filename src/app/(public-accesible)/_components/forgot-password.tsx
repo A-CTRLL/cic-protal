@@ -82,10 +82,12 @@ export default function ForgotPassword() {
           )}
         />
         <div className="grid grid-cols-1 gap-2 mt-2">
-           <Button type="submit" className="">Submit</Button>
-           <Button >
-              <Link href="/">Go to Login</Link>
-           </Button>
+           <Button type="submit" className="">Send Reset Link</Button>
+           
+              <Link href="/">
+                 <Button type="button" className="w-full">Go to Login if you remember password</Button>
+              </Link>
+           
         </div>
       </form>
     </Form>

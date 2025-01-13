@@ -5,8 +5,7 @@ import PageTitle from '@/components/page-title'
 function page() {
   return (
     <PageWrapper>
-        <PageTitle title='Rejected Applications'/>
-        
+        <PageTitle title='Active & Pending Applications'/>
     </PageWrapper>
   )
 }
