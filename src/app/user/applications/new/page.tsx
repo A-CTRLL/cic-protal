@@ -90,7 +90,7 @@ function page() {
                 <FormHeader title='CONSTRUCTION PROJECTS AND LEVY ASSESSMENT REGISTRATION- CICF 8'/>
                 <ProjectLevyForm/>
 
-                 This is being developed
+               
             </div>
          }
          {

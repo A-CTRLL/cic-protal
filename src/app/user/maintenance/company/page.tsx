@@ -28,7 +28,7 @@ function page() {
     <PageWrapper>
       <div className='flex justify-between items-center'>
          <PageTitle title='Company Management'/>
-         <Button>Submit Application</Button>
+         
       </div>
       <ContentCard>
       <Tabs defaultValue="business_details" className="w-full">

@@ -29,7 +29,7 @@ function page() {
     <PageWrapper>
         <div className='flex items-center justify-between'>
           <PageTitle title={`${company?.name}`}/>
-          <Badge variant="outline">{`${company?.business_type}`}</Badge>
+          <Badge variant="outline" className='bg-white'>{`${company?.business_type}`}</Badge>
         </div>
 
         <Card>
@@ -67,10 +67,9 @@ function GradingCompany() {
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Are you absolutely sure?</DialogTitle>
+            <DialogTitle>To be able to grade here</DialogTitle>
             <DialogDescription>
-              This action cannot be undone. This will permanently delete your account
-              and remove your data from our servers.
+              Grade the cion
             </DialogDescription>
           </DialogHeader>
         </DialogContent>
